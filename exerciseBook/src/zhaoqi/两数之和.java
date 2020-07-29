@@ -1,3 +1,4 @@
+//O（n^2） O(1)
 class Solution {
     public int[] twoSum(int[] nums, int target) {
 
@@ -7,6 +8,21 @@ class Solution {
                     return new int[]{i,j};
                 }
             }
+        }
+        return null;
+    }
+}
+
+//O（n）  O（n）
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer,Integer> hash = new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            int num = target - nums[i];
+            if(hash.containsKey(num)){
+                return new int[]{hash.get(num),i};
+            }
+            hash.put(nums[i],i);
         }
         return null;
     }
