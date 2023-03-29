@@ -1,22 +1,10 @@
 package zhaoqi.com.数据结构.链表;
 
 class Node {
-    private String value;
-    private Node next;
+    String value;
+    Node next;
 
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
+    public Node(String value) {
         this.value = value;
-    }
-
-    public Node getNext() {
-        return next;
-    }
-
-    public void setNext(Node next) {
-        this.next = next;
     }
 }
