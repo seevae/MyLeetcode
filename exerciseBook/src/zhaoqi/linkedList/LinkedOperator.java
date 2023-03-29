@@ -1,24 +1,9 @@
 package zhaoqi.com.数据结构.链表;
 
-public class LinkedDemo implements LinkedOperator{
-    @Override
-    public Node addEnd(Node node) {
-        return null;
-    }
-
-    @Override
-    public Node addFront(Node node) {
-        return null;
-    }
-
-    @Override
-    public Node delete(Node node) {
-        return null;
-    }
-
-    @Override
-    public Node reverse(Node node) {
-        return null;
-    }
+public interface LinkedOperator {
+    Node addEnd(Node header, String newValue);
+    Node addFront(Node header, String newValue);
+    void printLinked(Node header);
+    Node delete(Node node);
+    Node reverse(Node node);
 }
-
