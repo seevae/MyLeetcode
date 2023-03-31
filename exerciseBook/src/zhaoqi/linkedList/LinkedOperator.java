@@ -1,9 +1,15 @@
-package zhaoqi.com.数据结构.链表;
+package linkedList;
 
 public interface LinkedOperator {
     Node addEnd(Node header, String newValue);
+
     Node addFront(Node header, String newValue);
+
     void printLinked(Node header);
-    Node delete(Node node);
+
+    Node deleteNodeByValue(Node header, String v);
+
+    Node deleteNodeByIndex(Node header, int i);
+
     Node reverse(Node node);
 }

@@ -1,4 +1,4 @@
-package zhaoqi.com.数据结构.链表;
+package linkedList;
 
 class Node {
     String value;
