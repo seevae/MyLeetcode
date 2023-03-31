@@ -22,8 +22,19 @@ public class LinkedDemo implements LinkedOperator {
     }
 
     @Override
-    public Node reverse(Node node) {
-        return null;
+    public Node reverse(Node header) {
+        Node pre = null;
+        Node cur = header;
+
+        while (cur != null) {
+            Node next = cur.next;
+
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+
+        return pre;
     }
 
     @Override

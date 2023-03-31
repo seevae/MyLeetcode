@@ -23,6 +23,14 @@ public class Test {
         linkedOperator.printLinked(testRe2);
         Node testRe3 = linkedOperator.deleteNodeByIndex(header, 1);
         linkedOperator.printLinked(testRe3);
+        System.out.println();
+        System.out.println("-----反转链表前-----");
+        linkedOperator.printLinked(header);
+        System.out.println();
+        Node reverseHeader = linkedOperator.reverse(header);
+        System.out.println("-----反转链表后-----");
+        linkedOperator.printLinked(reverseHeader);
+
 
     }
 }
