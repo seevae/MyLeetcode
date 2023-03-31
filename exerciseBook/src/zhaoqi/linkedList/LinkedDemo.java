@@ -37,6 +37,29 @@ public class LinkedDemo implements LinkedOperator {
         return pre;
     }
 
+    /**
+     * 反转链表记录一种错误的写法:看似正确，但是当传入的head为null时会出现空指针的异常!
+     * @param header
+     * class Solution {
+     *     public ListNode reverseList(ListNode head) {
+     *         ListNode pre = null;
+     *         ListNode cur = head;
+     *
+     *         while (cur.next != null) {
+     *             ListNode next = cur.next;
+     *
+     *             cur.next = pre;
+     *             pre = cur;
+     *             cur = next;
+     *         }
+     *         cur.next = pre;
+     *         return cur;
+     *     }
+     * }
+     */
+
+
+
     @Override
     public void printLinked(Node header) {
         Node p = header;
