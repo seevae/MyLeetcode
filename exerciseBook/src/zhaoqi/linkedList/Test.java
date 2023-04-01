@@ -32,5 +32,10 @@ public class Test {
         linkedOperator.printLinked(reverseHeader);
 
 
+        System.out.println();
+        System.out.println("获取倒数第n个节点");
+        Node node = linkedOperator.reciprocalNode(reverseHeader, 1);
+        System.out.println(node.value);
+
     }
 }

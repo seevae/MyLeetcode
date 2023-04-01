@@ -12,4 +12,9 @@ public interface LinkedOperator {
     Node deleteNodeByIndex(Node header, int i);
 
     Node reverse(Node node);
+
+    /**
+     * The penultimate node in the linked list
+     */
+    Node reciprocalNode(Node header, int i);
 }

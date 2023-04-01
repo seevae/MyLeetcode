@@ -39,25 +39,24 @@ public class LinkedDemo implements LinkedOperator {
 
     /**
      * 反转链表记录一种错误的写法:看似正确，但是当传入的head为null时会出现空指针的异常!
-     * @param header
-     * class Solution {
-     *     public ListNode reverseList(ListNode head) {
-     *         ListNode pre = null;
-     *         ListNode cur = head;
      *
-     *         while (cur.next != null) {
-     *             ListNode next = cur.next;
-     *
-     *             cur.next = pre;
-     *             pre = cur;
-     *             cur = next;
-     *         }
-     *         cur.next = pre;
-     *         return cur;
-     *     }
-     * }
+     * @param header class Solution {
+     *               public ListNode reverseList(ListNode head) {
+     *               ListNode pre = null;
+     *               ListNode cur = head;
+     *               <p>
+     *               while (cur.next != null) {
+     *               ListNode next = cur.next;
+     *               <p>
+     *               cur.next = pre;
+     *               pre = cur;
+     *               cur = next;
+     *               }
+     *               cur.next = pre;
+     *               return cur;
+     *               }
+     *               }
      */
-
 
 
     @Override
@@ -102,6 +101,32 @@ public class LinkedDemo implements LinkedOperator {
         }
         p.next = p.next.next;
         return header;
+    }
+
+
+    /**
+     * 1. 先遍历一边获取链表长度，然后通过 len-i+1 正向取出目标节点
+     * 2. 快慢指针：快指针先走i个单位，然后两个在一起走，当快指针到null时，慢指针指向的就是目标值
+     * @param header
+     * @param i
+     * @return
+     */
+    @Override
+    public Node reciprocalNode(Node header, int i) {
+        System.out.println("倒数第" + i + "个节点");
+        Node fast = header;
+        Node slow = header;
+
+        for (int n = 0; n < i; n++) {
+            fast = fast.next;
+        }
+
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+
+        return slow;
     }
 
 
