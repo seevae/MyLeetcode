@@ -196,5 +196,40 @@ public class LinkedDemo implements LinkedOperator {
         return index + 1;
     }
 
+    @Override
+    public Node mergeTwoOrderLinked(Node l1, Node l2) {
+        if (l1 == null) {
+            return l2;
+        }
+        if (l2 == null) {
+            return l1;
+        }
+
+        Node newHead = new Node("-1");
+
+        Node p1 = l1;
+        Node p2 = l2;
+        Node p3 = newHead;
+
+        while (p1 != null && p2 != null) {
+            if (Integer.parseInt(p1.value) < Integer.parseInt(p2.value)) {
+                p3.next = p1;
+                p1 = p1.next;
+                p3 = p3.next;
+            } else {
+                p3.next = p2;
+                p2 = p2.next;
+                p3 = p3.next;
+            }
+        }
+
+        if (p2 == null) {
+            p3.next = p1;
+        } else if (p1 == null) {
+            p3.next = p2;
+        }
+
+        return newHead.next;
+    }
 }
 

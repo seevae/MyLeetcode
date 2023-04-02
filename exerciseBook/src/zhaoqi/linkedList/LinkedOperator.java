@@ -22,4 +22,6 @@ public interface LinkedOperator {
      * Print a linked list from end to end
      */
     void printLinkedEndToEnd(Node header);
+
+    Node mergeTwoOrderLinked(Node l1, Node l2);
 }
