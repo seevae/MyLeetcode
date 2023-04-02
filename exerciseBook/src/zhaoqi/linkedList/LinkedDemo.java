@@ -1,5 +1,10 @@
 package linkedList;
 
+import sun.java2d.DisposerTarget;
+
+import java.util.Iterator;
+import java.util.Stack;
+
 public class LinkedDemo implements LinkedOperator {
     @Override
     public Node addEnd(Node header, String newValue) {
@@ -107,6 +112,7 @@ public class LinkedDemo implements LinkedOperator {
     /**
      * 1. 先遍历一边获取链表长度，然后通过 len-i+1 正向取出目标节点
      * 2. 快慢指针：快指针先走i个单位，然后两个在一起走，当快指针到null时，慢指针指向的就是目标值
+     *
      * @param header
      * @param i
      * @return
@@ -129,6 +135,66 @@ public class LinkedDemo implements LinkedOperator {
         return slow;
     }
 
+    @Override
+    public void printLinkedEndToEnd(Node header) {
+        if (header == null) {
+            return;
+        }
+        recallLinked(header);
+        Stack<String> stack = new Stack<>();
+        Node p = header;
+        while (p != null) {
+            stack.push(p.value);
+            p = p.next;
+        }
+
+        //遍历栈可以使用while循环+pop数据
+        while (stack.size() != 0) {
+            System.out.print(stack.pop() + " ");
+        }
+
+//        System.out.println("size:" + stack.size());  //记录的是栈中的所有数据的数量
+//        System.out.println("capacity:" + stack.capacity()); //栈的总容量
+
+//        //记录一种错误遍历stack的方式：使用stack.size作为循环条件，for循环中每次stack.pop，stack的大小都会减少一个
+//        //所以最终不能正确打印完栈中的所有内容
+//        for (int i = 0; i < stack.size(); i++) {
+//            System.out.print(i+ "-");
+//            System.out.print(stack.pop() + " ");
+//        }
+
+//        //记录：使用迭代器遍历stack，此时是从栈底到栈顶来读取数据的，因为stack的底层实现本质还是数组，所以迭代器会从下标为0处开始读取数据
+//        //stack.pop()方法会读取数组的末尾元素，并从数组删除该元素
+//        Iterator<String> iterator = stack.iterator();
+//        while (iterator.hasNext()) {
+//            System.out.print(iterator.next() + " ");
+//        }
+//        //stack.peek()方法读取数组末尾元素但是不删除
+
+    }
+
+    //补充使用回溯法从尾至头打印链表
+    String[] res;
+
+    public void recallLinked(Node header) {
+        System.out.println("回溯法倒序打印链表,开始-------");
+        backtrack(header, 0);
+        for (int i = 0; i < res.length; i++) {
+            System.out.print(res[i] + " ");
+        }
+        System.out.println();
+        System.out.println("回溯法倒序打印链表,结束-------");
+    }
+
+    public int backtrack(Node node, int length) {
+        if (node == null) {
+            res = new String[length];
+            return 0;
+        }
+        int index = backtrack(node.next, length + 1);
+        res[index] = node.value;
+        return index + 1;
+    }
 
 }
 

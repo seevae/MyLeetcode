@@ -17,4 +17,9 @@ public interface LinkedOperator {
      * The penultimate node in the linked list
      */
     Node reciprocalNode(Node header, int i);
+
+    /**
+     * Print a linked list from end to end
+     */
+    void printLinkedEndToEnd(Node header);
 }
