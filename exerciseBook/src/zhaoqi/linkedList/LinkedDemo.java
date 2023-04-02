@@ -231,5 +231,26 @@ public class LinkedDemo implements LinkedOperator {
 
         return newHead.next;
     }
+
+    /**
+     * 思路：1.两个指针分别从head1和head2开始遍历，走完一条链表后继续去走另一条链表
+     * 由于两个相交链表a，b加起来的总长度是一致的并且有公共部分c，所以相交情况下
+     * 两个指针总是会相遇的
+     * 2. 计算出来两个链表长度的差值，快慢指针根据差值同时出发，有相等值则有相交否则没有
+     *
+     * @param head1
+     * @param head2
+     * @return
+     */
+    public Node intersectNode(Node head1, Node head2) {
+        Node p1 = head1;
+        Node p2 = head2;
+
+        while (p1 != p2) {
+            p1 = p1 == null ? head2 : p1.next;
+            p2 = p2 == null ? head1 : p2.next;
+        }
+        return p1;
+    }
 }
 

@@ -24,4 +24,13 @@ public interface LinkedOperator {
     void printLinkedEndToEnd(Node header);
 
     Node mergeTwoOrderLinked(Node l1, Node l2);
+
+    /**
+     * Intersecting points of a linked list
+     *
+     * @param l1
+     * @param l2
+     * @return
+     */
+    Node intersectNode(Node l1, Node l2);
 }
